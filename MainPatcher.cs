@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +11,7 @@ namespace GeysersPerformanceFix
     {
         public static void Patch()
         {
-            var harmony = HarmonyInstance.Create("subnautica.repkins.geysersperformancefix");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            var harmony = Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(), "subnautica.repkins.geysersperformancefix");
             Logger.Info("Successfully patched");
         }
     }
